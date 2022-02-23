@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+<h2>Restaurant info:</h2>
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+
+  <p>
+    <strong>Phone number:</strong>
+    <%= @restaurant.phone_number %>
+  </p>
+
+  <p>
+    <strong>Category:</strong>
+    <%= @restaurant.category.capitalize %>
+  </p>
+
+  <h3>Reviews:</h3>
+  <ul>
+    <% @restaurant.reviews.each do |review| %>
+      <li>
+        Rate: <strong><%= review.rating %> - </strong>
+        <%= review.content %>
+
+        <%= link_to "Remove", review_path(review), method: 'DELETE', data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+    </ul>
+
+
+
+
+  <%= link_to 'Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %> <br>
+  <%= link_to 'Back', restaurants_path %>
+</div>
