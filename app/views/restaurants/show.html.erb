@@ -27,8 +27,6 @@
       <li>
         Rate: <strong><%= review.rating %> - </strong>
         <%= review.content %>
-
-        <%= link_to "Remove", review_path(review), method: 'DELETE', data: { confirm: 'Are you sure?' } %>
       </li>
     <% end %>
     </ul>
